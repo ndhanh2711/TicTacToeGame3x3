@@ -11,9 +11,9 @@ void taobang(void){
 }
 
 void tiktactoe1(char a[3][3]){
-    printf("LUẬT CHƠI: \n");
-    printf("___________________________________________________________________\n");
-    printf("|Điền 'x' hoặc 'o' vào các ô trong bảng bằng số như trong bảng sau:|\n");
+    printf("RULES OF TTHE GAME  : \n");
+    printf("_______________________________________________________________________________________\n");
+    printf("|Fill in 'x'or'o' in the cells of the table using numbers,like in the following table:|\n");
     for(int i = 0; i < 3; i++){
         if(i == 1){
             printf("|  | | | |  --->  |");
@@ -25,23 +25,23 @@ void tiktactoe1(char a[3][3]){
         printf("%d|", j);
         }
         if(i == 1){
-            printf("  --->  |o|o|x|                           |");
+            printf("  --->  |o|o|x|                                              |");
         }
         else{
-            printf("        |x|o|x|                           |");
+            printf("        |x|o|x|                                              |");
         }
             printf("\n");
     }
-    printf("|Kết thúc ai có 3 quân thẳng hàng sẽ WIN                           |\n");
+    printf("|The game ends when one player has three pieces in a row                              |\n");
     for(int i = 0; i < 3; i++){
         if(i == 0){
-            printf("|     |x|x|x|                                                      |\n");
+            printf("|     |x|x|x|                                                                         |\n");
         }
         else if(i == 1){
-            printf("| Ex: | | | | --> 'x' WIN                                          |\n|     | | | |                                                      |\n");
+            printf("| Ex: | | | | --> 'x' WIN                                                             |\n|     | | | |                                                                         |\n");
         }
     }
-    printf("--------------------------------------------------------------------\n");
+    printf("---------------------------------------------------------------------------------------\n");
 }
 
 void displayBoard(void){
@@ -58,12 +58,12 @@ void displayBoard(void){
 int checkMove(int row, int col){
     //Kiểm tra nước đi có hợp lệ không
     if (row < 0 || row > 3 || col < 0 || col > 3) {
-        return 0; // Đéo hợp lệ
+        return 0; // ko hợp lệ
       }
       if (a[row][col] == 'x' || a[row][col] == 'o'){
         return 0; // Vị trí này đã bị đánh
       }
-      return 1; // Hợp lí vcl
+      return 1; // Hợp lí
 }
 
 void makeMove(char a[3][3], int row, int col, char symbol){
@@ -77,11 +77,11 @@ int checkWin(void) {
     
     for (int i = 0; i < 3; i++) {
         if (a[i][0] == a[i][1] && a[i][1] == a[i][2] && a[i][0] != ' ' && a[i][0] == 'x') {
-            printf("Player 1 WIN:\n");
+            printf("*****PLAYER 1 WIN*****\n");
             return a[i][0]; // Người chơi sở hữu hàng ngang này chiến thắng
         }
         else if (a[i][0] == a[i][1] && a[i][1] == a[i][2] && a[i][0] != ' ' && a[i][0] == 'o') {
-            printf("Player 2 WIN:\n");
+            printf("*****PLAYER 2 WIN*****\n");
             return a[i][0];
         }
     }
@@ -89,32 +89,32 @@ int checkWin(void) {
         // Kiểm tra cột dọc
     for (int i = 0; i < 3; i++) {
         if (a[0][i] == a[1][i] && a[1][i] == a[2][i] && a[0][i] != ' ' && a[0][i] == 'x') {
-            printf("Player 1 WIN:\n");
+            printf("*****PLAYER 1 WIN*****\n");
             return a[0][i]; // Người chơi sở hữu cột dọc này chiến thắng
         }
         if (a[0][i] == a[1][i] && a[1][i] == a[2][i] && a[0][i] != ' ' && a[0][i] == 'o') {
-            printf("Player 2 WIN:\n");
+            printf("*****PLAYER 2 WIN*****\n");
             return a[0][i];
         }
     }
     
             // Kiểm tra đường chéo chính
         if (a[0][0] == a[1][1] && a[1][1] == a[2][2] && a[0][0] != ' ' && a[0][0] == 'x') {
-            printf("Player 1 WIN:\n");
+            printf("*****PLAYER 1 WIN*****\n");
             return a[0][0]; // Người chơi sở hữu đường chéo chính chiến thắng
             }
         if (a[0][0] == a[1][1] && a[1][1] == a[2][2] && a[0][0] != ' ' && a[0][0] == 'o') {
-            printf("Player 2 WIN:\n");
+            printf("*****PLAYER 2 WIN*****\n");
             return a[0][0]; // Người chơi sở hữu đường chéo chính chiến thắng
             }
     
             // Kiểm tra đường chéo phụ
         if (a[0][2] == a[1][1] && a[1][1] == a[2][0] && a[0][2] != ' ' && a[1][1] == 'x') {
-            printf("Player 1 WIN:\n");
+            printf("*****PLAYER 1 WIN*****\n");
             return a[0][2]; // Người chơi sở hữu đường chéo phụ chiến thắng
             }
         else if (a[0][2] == a[1][1] && a[1][1] == a[2][0] && a[0][2] != ' ' && a[1][1] == 'o') {
-            printf("Player 2 WIN:\n");
+            printf("*****PLAYER 2 WIN*****\n");
             return a[0][2]; // Người chơi sở hữu đường chéo phụ chiến thắng
             }
     
@@ -128,7 +128,7 @@ int checkWin(void) {
             }
     
             // Hòa
-                printf("Two player HOÀ\n");
+                printf("DRAW\n");
                 return 3;
         }
 
@@ -150,14 +150,15 @@ void tiktactoe2(void){
     int col = 0; //Cột
     int i = 9;
     while(i >= 1){
-        printf("Lượt thứ %d\n", 10 - i);
+        printf("Turn %d\n", 10 - i);
         if(i % 2){
-            printf("Lượt người chơi thứ 1:");
+            printf("Turn Player 1(x):");
         }
         else{
-            printf("Lượt người chơi thứ 2:");
+            printf("Turn Player 2(o):");
         }
         scanf("%d", &fight);
+        printf("-----------------------\n");
 
         // Lưu vị trí người chơi đánh
         if(fight == 1){ row = 0; col = 0;}
@@ -176,7 +177,7 @@ void tiktactoe2(void){
             boardfight(a);
         }
         else if(i % 2 == 1 && checkMove(row, col) == 0){
-            printf("Yêu cầu đánh lại:\n");
+            printf("Request to undo a move:\n");
       
             continue;
         }
@@ -185,30 +186,31 @@ void tiktactoe2(void){
             boardfight(a);
         }
         else if(i % 2 == 0 && checkMove(row, col) == 0){
-            printf("Yêu cầu đánh lại:\n");
+            printf("Request to undo a move:\n");
             continue;
         }
         i--;
         if(checkWin()){
-            printf("Kết thúc trận đấu\n\n");
+            printf("END GAMES\n\n");
             break;
         }
     }
-    printf("Nhìn lại kết quả\n");
+    printf("Look back at the results\n");
     boardfight(a); //In ra kết quả cuối cùng
-    printf("\n\n");
+    printf("---------END!---------\n");
+    printf("\n");
 }
 
 
 int main(void) {
     int lc;
     while(1){
-        printf("~~~~~~TICTAKTOE~~~~~~~\n");
-        printf("[1.Tìm hiểu luật chơi]\n");
-        printf("[2.Bắt đầu chơi.     ]\n");
-        printf("[0.End game.         ]\n");
-        printf("~~~~~~~~~~~~~~~~~~~~~~\n");
-        printf("Mày muốn chọn cái gì: ");
+        printf("~~~~~~~~~~~TICTAKTOE~~~~~~~~~~~\n");
+        printf("[1.Learn the rules of the game]\n");
+        printf("[2.Start                      ]\n");
+        printf("[0.Exit games                 ]\n");
+        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        printf("CHOOSE: ");
         scanf("%d", &lc);
         if(lc == 1){
             tiktactoe1(a);
@@ -216,31 +218,28 @@ int main(void) {
         else if(lc == 2){
             int lc1;
             while(1){
-                printf("--Chọn chế độ chơi--\n");
-                printf("{ 1.Two Player     }\n");
-                printf("{ 2.Đánh với máy   }\n");
-                printf("{ 0.Thoát trò chơi }\n");
-                printf("--------------------\n");
-                printf("Mời chọn: ");
+                printf("----------Select game mode----------\n");
+                printf("{ 1.Two Player                     }\n");
+                printf("{ 2.Play against the computer      }\n");
+                printf("{ 0.Return to the initial interface}\n");
+                printf("------------------------------------\n");
+                printf("CHOOSE: ");
                 scanf("%d", &lc1);
                 if(lc1 == 1){
                     tiktactoe2();
                 }
                 else if(lc1 == 2){
-                    printf("Chế độ chưa được update\n\n");
+                    printf("This mode has not been updated yet\n\n");
                 }
                 else if(lc1 == 0){
-                    printf("Không muốn chơi nữa thì thôi\n\n");
-                    return 0;
+                    break;
                 }
             }
         }
         else if(lc == 0){
-            printf("Nghỉ mẹ đi đừng chơi nữa.\n");
+            printf("You've exited the game. If you want to continue playing, please run the code again\n");
             return 0;
         }
     }
     return 0;
-    
-    
 }
