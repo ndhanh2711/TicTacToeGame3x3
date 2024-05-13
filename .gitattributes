@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <math.h>
 char a[3][3];
@@ -9,7 +10,6 @@ void taobang(void){
         }
     }
 }
-
 void tiktactoe1(char a[3][3]){
     printf("RULES OF TTHE GAME  : \n");
     printf("_______________________________________________________________________________________\n");
@@ -243,3 +243,7 @@ int main(void) {
     }
     return 0;
 }
+=======
+# Auto detect text files and perform LF normalization
+* text=auto
+>>>>>>> parent of f37fed1 (Update .gitattributes)
